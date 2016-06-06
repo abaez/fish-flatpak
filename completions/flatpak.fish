@@ -1,3 +1,5 @@
+
+
 function   __fish_flatpak_command
   set -l cmdline (commandline -poc)
   set -e cmdline[1]
@@ -25,6 +27,11 @@ function __fish_flatpak_subcommand --argument-names cmd
   end
 end
 
+for cmd in  install update uninstall list info run override export-file enter remote-add remote-modify remote-delete remote-list remote-ls build-init build build-finish build-export build-bundle build-import-bundle build-sign build-update-repo
+
+  complete -c flatpak -n "not __fish_flatpak_subcommand" -xa $cmd
+end
+
 # flatpak
 complete -c flatpak -s h -l help -d "Show help options and exit."
 complete -c flatpak -s v -l verbose -d "Print debug information during command processing."
@@ -32,7 +39,6 @@ complete -c flatpak -l version -d "Print version information and exit."
 
 
 # install
-complete -c flatpak -n "__fish_flatpak_command install" -d "Install an application or runtime"
 complete -c flatpak -n "__fish_flatpak_command install" -l bundle -d "Install from a bundle file instead of a configured remote."
 complete -c flatpak -n "__fish_flatpak_command install" -l user -d "Create a per-user installation."
 complete -c flatpak -n "__fish_flatpak_command install" -l system -d "Create a system-wide installation."
