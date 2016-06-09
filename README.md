@@ -5,7 +5,7 @@
 
 # flatpak
 
-Autocomplete for [flatpack] for [fish].
+Autocomplete for [flatpak] for [fish].
 
 ## Description
 
