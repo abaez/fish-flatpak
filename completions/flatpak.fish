@@ -40,14 +40,27 @@ complete -c flatpak -l version -d "Print version information and exit."
 
 # command sub commands
 function __fish_flatpak_samesub
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l user -d "$argv a per-user installation."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l system -d "$argv a system-wide installation."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l arch -d "The architecture to install for."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l subpath -d "$argv only a subpath of the ref."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l no-deploy -d "Don't download the latest version, but don't deploy it."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l no-pull -d "Don't download the latest version but deploy it."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l app -d "Only look for an app with the given name."
-  complete -c flatpak -n "__fish_flatpak_command $argv" -l runtime -d "Only look for an runtime with the given name."
+  set -l cmd $argv[1]
+
+  for sub in $argv[2..]
+    switch $sub
+      case user
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l user -d "$argv a per-user installation."
+      case system
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l system -d "$argv a system-wide installation."
+      case arch
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l arch -d "The architecture to install for."
+      case subpath
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l subpath -d "$argv only a subpath of the ref."
+      case no-deploy
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l no-deploy -d "Don't download the latest version, but don't deploy it."
+      case no-pull
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l no-pull -d "Don't download the latest version but deploy it."
+      case app
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l app -d "Only look for an app with the given name."
+      case runtime
+        complete -c flatpak -n "__fish_flatpak_command $argv" -l runtime -d "Only look for an runtime with the given name."
+  end
 end
 
 # install
