@@ -44,8 +44,17 @@ complete -c flatpak -n "__fish_flatpak_command install" -l user -d "Create a per
 complete -c flatpak -n "__fish_flatpak_command install" -l system -d "Create a system-wide installation."
 complete -c flatpak -n "__fish_flatpak_command install" -l arch -d "The architecture to install for."
 complete -c flatpak -n "__fish_flatpak_command install" -l subpath -d "Install only a subpath of the ref."
-complete -c flatpak -n "__fish_flatpak_command install" -l no-deploy -d "Don't download the latest version and don't deploy it."
+complete -c flatpak -n "__fish_flatpak_command install" -l no-deploy -d "Don't download the latest version, but don't deploy it."
 complete -c flatpak -n "__fish_flatpak_command install" -l no-pull -d "Don't download the latest version but deploy it."
 complete -c flatpak -n "__fish_flatpak_command install" -l app -d "Only look for an app with the given name."
 complete -c flatpak -n "__fish_flatpak_command install" -l runtime -d "Only look for an runtime with the given name."
 
+# update
+complete -c flatpak -n "__fish_flatpak_command update" -l user -d "Update per-user installation."
+complete -c flatpak -n "__fish_flatpak_command update" -l system -d "Update a system-wide installation."
+complete -c flatpak -n "__fish_flatpak_command update" -l subpath -d "Install only a subpath of the ref."
+complete -c flatpak -n "__fish_flatpak_command update" -l commit -d "Update to this commit, instead of the tip of the branch."
+complete -c flatpak -n "__fish_flatpak_command update" -l no-deploy -d "Download the latest version, but don't deploy it."
+complete -c flatpak -n "__fish_flatpak_command update" -l no-pull -d "Don't download the latest version but deploy it."
+complete -c flatpak -n "__fish_flatpak_command update" -l app -d "Only look for an app with the given name."
+complete -c flatpak -n "__fish_flatpak_command update" -l runtime -d "Only look for an runtime with the given name."
