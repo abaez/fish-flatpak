@@ -5,7 +5,18 @@
 
 # flatpak
 
-Autocomplete for [flatpack].
+Autocomplete for [flatpack] for [fish].
+
+## Description
+
+Currently in development, but will eventually have the full exhausted list of flatpak sub commands available for ease in use.
+
+#### Progress
+
+* install
+* update
+* uninstall
+* list
 
 ## Install
 
@@ -15,6 +26,7 @@ With [fisherman]
 fisher abaez/fish-flatpak
 ```
 
+[fish]: http://fishshell.com/
 [flatpak]: http://flatpak.org/
 [travis-link]: https://travis-ci.org/abaez/flatpak
 [travis-badge]: https://img.shields.io/travis/abaez/flatpak.svg
