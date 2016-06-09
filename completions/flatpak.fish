@@ -5,7 +5,7 @@ set __fish_flatpak_subcommands install update uninstall list info run \
   remote-list remote-ls build-init build build-finish build-export    \
   build-bundle build-import-bundle build-sign build-update-repo
 
-complete -c flatpak -f -c flatpak -n "__fish_use_subcommand" -a "$__fish_flatpak_subcommands"
+complete -c flatpak -xc flatpak -n "__fish_use_subcommand" -a "$__fish_flatpak_subcommands"
 
 # flatpak
 complete -c flatpak -s h -l help -d "Show help options and exit."
@@ -19,21 +19,21 @@ function __fish_flatpak_samesub
   for sub in $argv[2..-1]
     switch $sub
       case user
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l user -d "$cmd a per-user installation."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "$cmd a per-user installation."
       case system
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l system -d "$cmd a system-wide installation."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "$cmd a system-wide installation."
       case arch
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l arch -d "The architecture to install for."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "The architecture to install for."
       case subpath
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l subpath -d "$cmd only a subpath of the ref."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "$cmd only a subpath of the ref."
       case no-deploy
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l no-deploy -d "Don't download the latest version, but don't deploy it."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "Don't download the latest version, but don't deploy it."
       case no-pull
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l no-pull -d "Don't download the latest version but deploy it."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "Don't download the latest version but deploy it."
       case app
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l app -d "Only look for an app with the given name."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "Only look for an app with the given name."
       case runtime
-        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l runtime -d "Only look for an runtime with the given name."
+        complete -c flatpak -x -n "__fish_seen_subcommand_from $cmd" -l $sub -d "Only look for an runtime with the given name."
     end
   end
 end
