@@ -60,6 +60,10 @@ complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-orign -d 
 complete -c flatpak -n "__fish_seen_subcommand_from info" -s c -l show-commit -d "Show the installed commit id."
 __fish_flatpak_samesub info user system app runtime
 
+# run
+
+# override
+
 # export-file
 complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  allow-write -d "Also grant write access to the applications specified with --app."
 complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  allow-delete -d "Also grant the ability to delete a document id to the applications specified with --app."
@@ -67,4 +71,38 @@ complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  all
 complete -c flatpak -n "__fish_seen_subcommand_from export-file" -l unique -d "Don't reuese an existing document id for the file."
 complete -c flatpak -n "__fish_seen_subcommand_from export-file" -l transient -d "The document will only exist for the length of the session."
 __fish_flatpak_samesub list app
+
+# enter
+
+#----------------
+# remote
+
+### add
+
+### modify
+
+### delete
+
+### list
+
+### ls
+
+#----------------
+# build
+
+### init
+
+### finish
+
+### export
+
+### bundle
+
+### import-bundle
+
+### update-repo
+
+### sign
+
+
 
