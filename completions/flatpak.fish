@@ -51,5 +51,20 @@ complete -c flatpak -n "__fish_seen_subcommand_from uninstall" -l keep-ref -d "K
 __fish_flatpak_samesub uninstall user system arch app runtime
 
 # list
-complete -c flatpak -n "__fish_seen_subcommand_from uninstall" -l show-details -d "Show arches and branches, in addition to the application names."
+complete -c flatpak -n "__fish_seen_subcommand_from list" -l show-details -d "Show arches and branches, in addition to the application names."
 __fish_flatpak_samesub list user system app runtime
+
+# info
+complete -c flatpak -n "__fish_seen_subcommand_from info" -s r -l show-ref -d "Show the installed ref."
+complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-orign -d "Show the remote ref installed from."
+complete -c flatpak -n "__fish_seen_subcommand_from info" -s c -l show-commit -d "Show the installed commit id."
+__fish_flatpak_samesub info user system app runtime
+
+# export-file
+complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  allow-write -d "Also grant write access to the applications specified with --app."
+complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  allow-delete -d "Also grant the ability to delete a document id to the applications specified with --app."
+complete -c flatpak -n "__fish_seen_subcommand_from export-file" -xa app -l  allow-grant-permission -d "Also grant the ability to further grant permissions for applications specified with --app."
+complete -c flatpak -n "__fish_seen_subcommand_from export-file" -l unique -d "Don't reuese an existing document id for the file."
+complete -c flatpak -n "__fish_seen_subcommand_from export-file" -l transient -d "The document will only exist for the length of the session."
+__fish_flatpak_samesub list app
+
