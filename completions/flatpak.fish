@@ -1,3 +1,5 @@
+# v0.6.6
+
 
 # the commands
 set __fish_flatpak_subcommands install update uninstall list info run \
@@ -56,7 +58,7 @@ __fish_flatpak_samesub list user system app runtime
 
 # info
 complete -c flatpak -n "__fish_seen_subcommand_from info" -s r -l show-ref -d "Show the installed ref."
-complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-orign -d "Show the remote ref installed from."
+complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-origin -d "Show the remote ref installed from."
 complete -c flatpak -n "__fish_seen_subcommand_from info" -s c -l show-commit -d "Show the installed commit id."
 __fish_flatpak_samesub info user system app runtime
 
@@ -73,6 +75,7 @@ complete -c flatpak -n "__fish_seen_subcommand_from export-file" -l transient -d
 __fish_flatpak_samesub list app
 
 # enter
+
 
 #----------------
 # remote
