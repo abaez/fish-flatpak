@@ -58,11 +58,31 @@ __fish_flatpak_samesub list user system app runtime
 
 # info
 complete -c flatpak -n "__fish_seen_subcommand_from info" -s r -l show-ref -d "Show the installed ref."
-complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-origin -d "Show the remote ref installed from."
+complete -c flatpak -n "__fish_seen_subcommand_from info" -s o -l show-origin -d "Show the remote ref installed from."l
 complete -c flatpak -n "__fish_seen_subcommand_from info" -s c -l show-commit -d "Show the installed commit id."
 __fish_flatpak_samesub info user system app runtime
 
 # run
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l "command" -d "The command to run instead of the one listed in app metadata."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l branch -d "The branch to use"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -s d -l devel -d "Use devel runtime"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l runtime-version -d "Use version runtime instead"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l share -d "Share a subsystem with host session."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l unshare -d "Don't share a subsystem with host.'"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l socket -d "Expose a socket to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l nosocket -d "Don't eExpose a socket to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l device -d "Expose a device to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l nodevice -d "Don't eExpose a device to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l filesystem -d "Allow the app access to a subnet of the fs."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l env -d "Set an env var for the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l own-name -d "Allow the app to own the name in the session bus"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l talk-name -d "Allow the app to talk the name in the session bus"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l system-own-name -d "Allow the app to own the name in the system bus"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l system-talk-name -d "Allow the app to talk the name in the system bus"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l persist -d "make relative persistent bind mount"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-session -d "Log session bus traffic"
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-system -d "Log system bus traffic"
+__fish_flatpak_samesub run arch runtime
 
 # override
 
