@@ -1,4 +1,3 @@
-[![Build Status][travis-badge]][travis-link]
 [![Slack Room][slack-badge]][slack-link]
 [![twitter][1i]][1p]
 [![license][2i]][2p]
@@ -28,8 +27,6 @@ fisher abaez/fish-flatpak
 
 [fish]: http://fishshell.com/
 [flatpak]: http://flatpak.org/
-[travis-link]: https://travis-ci.org/abaez/flatpak
-[travis-badge]: https://img.shields.io/travis/abaez/flatpak.svg
 [slack-link]: https://fisherman-wharf.herokuapp.com
 [slack-badge]: https://fisherman-wharf.herokuapp.com/badge.svg
 [fisherman]: https://github.com/fisherman/fisherman
