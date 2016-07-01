@@ -3,7 +3,7 @@
 
 # the commands
 set __fish_flatpak_subcommands install update uninstall list info run \
-  override export-file enter remote-add remote-modify remote-delete   \
+  override document-export enter remote-add remote-modify remote-delete   \
   remote-list remote-ls build-init build build-finish build-export    \
   build-bundle build-import-bundle build-sign build-update-repo
 
@@ -88,15 +88,25 @@ for sub in run override
   complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l system-talk-name -d "Allow the app to talk the name in the system bus"
 end
 
+#----------------
+# document
 
-# export-file
-complete -c flatpak -xn "__fish_seen_subcommand_from export-file" -xa app -l  allow-write -d "Also grant write access to the applications specified with --app."
-complete -c flatpak -xn "__fish_seen_subcommand_from export-file" -xa app -l  allow-delete -d "Also grant the ability to delete a document id to the applications specified with --app."
-complete -c flatpak -xn "__fish_seen_subcommand_from export-file" -xa app -l  allow-grant-permission -d "Also grant the ability to further grant permissions for applications specified with --app."
-complete -c flatpak -xn "__fish_seen_subcommand_from export-file" -l unique -d "Don't reuese an existing document id for the file."
-complete -c flatpak -xn "__fish_seen_subcommand_from export-file" -l transient -d "The document will only exist for the length of the session."
-__fish_flatpak_samesub list app
+### export
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -l unique -d "Don't reuese an existing document id for the file."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -l transient -d "The document will only exist for the length of the session."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  allow-write -d "Also grant write access to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  forbid-write -d "Forbid write access to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  allow-read -d "Also grant the ability to read a document id to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  forbid-read -d "Also disallow the ability to read a document id to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  allow-delete -d "Also grant the ability to delete a document id to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  forbid-delete -d "Forbid the ability to delete a document id to the applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  allow-grant-permission -d "Also grant the ability to further grant permissions for applications specified with --app."
+complete -c flatpak -xn "__fish_seen_subcommand_from document-export" -xa app -l  forbid-grant-permission -d "Forbid the ability to further grant permissions for applications specified with --app."
+__fish_flatpak_samesub document-export app
 
+### unexport
+### info
+### list
 
 #----------------
 # remote
