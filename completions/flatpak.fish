@@ -122,13 +122,22 @@ for sub in add, modify
   complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l gpg-import -d "Import the specified gpg keys."
 end
 __fish_flatpak_samesub remote-add user system
-
+__fish_flatpak_samesub remote-modify user system
 
 ### delete
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-delete" -l force -d "Remove remote by force."
+__fish_flatpak_samesub remote-delete user system
 
 ### list
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-list" -l show-details -d "Show more information of each repo."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-list" -l show-disabled -d "Show disabled repos."
+__fish_flatpak_samesub remote-list user system
 
 ### ls
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-ls" -s d -l show-details -d "Show arches, branches, and commits."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-ls" -l updates -d "Show only updates available."
+__fish_flatpak_samesub remote-ls user system runtime app arch
+
 
 #----------------
 # build
