@@ -112,6 +112,14 @@ __fish_flatpak_samesub document-export app
 # remote
 
 ### add
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l no-gpg-verify -d "Disable GPG verification for remote."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l prio -d "Set the priority for the remote."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l no-enumerate -d "Mark the remote as not enumerated."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l if-not-exists -d "Do nothing if the provided remote already exists."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l disable -d "Disable the added remote."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l title -d "A title for the remote."
+complete -c flatpak -xn "__fish_seen_subcommand_from remote-add" -l gpg-import -d "Import the specified gpg keys."
+__fish_flatpak_samesub remote-add user system
 
 ### modify
 
