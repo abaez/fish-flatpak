@@ -92,7 +92,7 @@ complete -c flatpak -xn "__fish_seen_subcommand_from info" -s c -l show-commit -
 __fish_flatpak_samesub info user system app runtime
 
 # run
-complete -c flatpak -xn "__fish_seen_subcommand_from run" -l "command" -d "The command to run instead of the one listed in app metadata."
+complete -c flatpak -xn "__fish_seen_subcommand_from run" -l "command" -d "The command to run instead of the one listed in app."
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l branch -d "The branch to use"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l runtime-version -d "Use version runtime instead"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-session -d "Log session bus traffic"
@@ -157,7 +157,7 @@ __fish_flatpak_samesub remote-ls user system runtime app arch
 
 #----------------
 # build
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -s r -l runtime -d "Use non-devel runtime of app metadata."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -s r -l runtime -d "Use non-devel runtime of app."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-mount -d "Add a custom bind mount in the build namespace."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-dir -d "Start the build in directory."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nofilesystem -d "Disallow the app access to a subset of the fs."
@@ -167,7 +167,7 @@ __fish_flatpak_samesub build share unshare socket nosocket device nodevice \
 ### init
 complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -s v -l var -d "Initialize var from the named runtime."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -s w -l writable-sdk -d "Initialize /usr writable with a copy of the sdk."
-complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -l tag -d "Add a tag to the metadata file."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -l tag -d "Add a tag to the file."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -xa writable-sdk -l sdk-extension -d "Also install the specified extension."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -xa writable-sdk -l sdk-dir -d "Specify a custom sub directory instead of usr."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -l update -d "Re-initialize the sdk and var."
@@ -180,6 +180,15 @@ __fish_flatpak_samesub build-finish share unshare socket nosocket device \
   persist
 
 ### export
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l exclude -d "Exclude files matching PATTERN from the commit."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l include -d "Don't exclude matching PATTERN from the commit."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l metadata -d "Use the specified filename as metadata in exported app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l files -d "Use the files in the specified subdirectory as the file contents."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l update-appstream -d "Run appstream-builder with appstream branch after build."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-sign -d "Sign the commit."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-homedir -d "GPG homedir to use for keyring lookup."
+__fish__flatpak_samesub build-export arch runtime
+
 
 ### bundle
 
