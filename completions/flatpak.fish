@@ -36,6 +36,33 @@ function __fish_flatpak_samesub
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Only look for an app with the given name."
       case runtime
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Only look for an runtime with the given name."
+      # set for run, override, build
+      case devel
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Use devel $subtime"
+      case share
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Share a subsystem with host session."
+      case unshare
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Don't share a subsystem with host."
+      case socket
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Expose a socket to the app."
+      case nosocket
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Don't eExpose a socket to the app."
+      case device
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Expose a device to the app."
+      case nodevice
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Don't eExpose a device to the app."
+      case filesystem
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app access to a subnet of the fs."
+      case env
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Set an env var for the app."
+      case own-name
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to own the name in the session bus"
+      case talk-name
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to talk the name in the session bus"
+      case system-own-name
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to own the name in the system bus"
+      case system-talk-name
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to talk the name in the system bus"
     end
   end
 end
@@ -69,24 +96,14 @@ complete -c flatpak -xn "__fish_seen_subcommand_from run" -l runtime-version -d 
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l persist -d "make relative persistent bind mount"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-session -d "Log session bus traffic"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-system -d "Log system bus traffic"
-__fish_flatpak_samesub run arch runtime
+__fish_flatpak_samesub run arch runtime devel share unshare socket nosocket \
+  device nodevice filesystem env own-name talk-name system-own-name system-talk-name
 
-# run & override
-for sub in run override
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -s d -l devel -d "Use devel $subtime"
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l share -d "Share a subsystem with host session."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l unshare -d "Don't share a subsystem with host.'"
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l socket -d "Expose a socket to the app."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l nosocket -d "Don't eExpose a socket to the app."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l device -d "Expose a device to the app."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l nodevice -d "Don't eExpose a device to the app."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l filesystem -d "Allow the app access to a subnet of the fs."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l env -d "Set an env var for the app."
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l own-name -d "Allow the app to own the name in the session bus"
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l talk-name -d "Allow the app to talk the name in the session bus"
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l system-own-name -d "Allow the app to own the name in the system bus"
-  complete -c flatpak -xn "__fish_seen_subcommand_from $sub" -l system-talk-name -d "Allow the app to talk the name in the system bus"
-end
+# override
+__fish_flatpak_samesub override devel share unshare socket nosocket device \
+  nodevice filesystem env own-name talk-name system-own-name system-talk-name
+
+
 
 #----------------
 # document
@@ -141,6 +158,20 @@ __fish_flatpak_samesub remote-ls user system runtime app arch
 
 #----------------
 # build
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -s r -l runtime -d "Use non-devel runtime of app metadata."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-mount -d "Add a custom bind mount in the build namespace."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-dir -d "Start the build in directory."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l share -d "Share a subsystem with the host session."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l unshare -d "Unshare a subsystem with the host session."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l socket -d "Expose a well-known socket to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nosocket -d "Unexpose a well-known socket to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l device -d "Expose a device to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nodevice -d "Unexpose a device to the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l filesystem -d "Allow the app access to a subset of the fs."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nofilesystem -d "Disallow the app access to a subset of the fs."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l env -d "Set an env var in the app."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l own-name -d "Allow the app to own a name in session bus."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l talk-name -d "Allow the app to talk to a name in session bus."
 
 ### init
 
