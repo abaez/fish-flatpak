@@ -165,8 +165,19 @@ __fish_flatpak_samesub build share unshare socket nosocket device nodevice \
   filesystem env own-talk talk-name system-own-name system-talk-name persist
 
 ### init
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -s v -l var -d "Initialize var from the named runtime."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -s w -l writable-sdk -d "Initialize /usr writable with a copy of the sdk."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -l tag -d "Add a tag to the metadata file."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -xa writable-sdk -l sdk-extension -d "Also install the specified extension."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -xa writable-sdk -l sdk-dir -d "Specify a custom sub directory instead of usr."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-init" -l update -d "Re-initialize the sdk and var."
+__fish_flatpak_samesub build-init arch
 
 ### finish
+complete -c flatpak -xn "__fish_seen_subcommand_from build-finish" -l no-exports -d "Don't look for exports in the build."
+__fish_flatpak_samesub build-finish share unshare socket nosocket device \
+  nodevice filesystem env own-name talk-name system-own-name system-talk-name \
+  persist
 
 ### export
 
