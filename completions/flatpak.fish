@@ -63,6 +63,8 @@ function __fish_flatpak_samesub
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to own the name in the system bus"
       case system-talk-name
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to talk the name in the system bus"
+      case persist
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "make relative persistent bind mount"
     end
   end
 end
@@ -93,11 +95,10 @@ __fish_flatpak_samesub info user system app runtime
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l "command" -d "The command to run instead of the one listed in app metadata."
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l branch -d "The branch to use"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l runtime-version -d "Use version runtime instead"
-complete -c flatpak -xn "__fish_seen_subcommand_from run" -l persist -d "make relative persistent bind mount"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-session -d "Log session bus traffic"
 complete -c flatpak -xn "__fish_seen_subcommand_from run" -l log-system -d "Log system bus traffic"
 __fish_flatpak_samesub run arch runtime devel share unshare socket nosocket \
-  device nodevice filesystem env own-name talk-name system-own-name system-talk-name
+  device nodevice filesystem env own-name talk-name system-own-name system-talk-name persist
 
 # override
 __fish_flatpak_samesub override devel share unshare socket nosocket device \
@@ -160,9 +161,8 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build" -s r -l runtime -d "
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-mount -d "Add a custom bind mount in the build namespace."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-dir -d "Start the build in directory."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nofilesystem -d "Disallow the app access to a subset of the fs."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l persist -d "Persistent relative homedir path for app."
 __fish_flatpak_samesub build share unshare socket nosocket device nodevice \
-  filesystem env own-talk talk-name system-own-name system-talk-name
+  filesystem env own-talk talk-name system-own-name system-talk-name persist
 
 ### init
 
