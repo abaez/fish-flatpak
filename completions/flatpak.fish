@@ -189,10 +189,16 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-sign -
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-homedir -d "GPG homedir to use for keyring lookup."
 __fish__flatpak_samesub build-export arch runtime
 
-
 ### bundle
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l repo-url -d "Url for repo of app to be used for updates."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-keys -d "Add the GPG key."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-homedir -d "GPG homedir to use for keyring lookup."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l oci -d "Export to an OCI image instead of flatpak bundle."
+__fish__flatpak_samesub build-bundle arch runtime
 
 ### import-bundle
+complete -c flatpak -xn "__fish_seen_subcommand_from build-import-bundle" -l ref -d "Overried the ref specified in the bundle."
+complete -c flatpak -xn "__fish_seen_subcommand_from build-import-bundle" -l oci -d "Import an OCI image instead of flatpak bundle."
 
 ### update-repo
 
