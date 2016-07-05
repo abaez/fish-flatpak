@@ -103,8 +103,6 @@ __fish_flatpak_samesub run arch runtime devel share unshare socket nosocket \
 __fish_flatpak_samesub override devel share unshare socket nosocket device \
   nodevice filesystem env own-name talk-name system-own-name system-talk-name
 
-
-
 #----------------
 # document
 
@@ -161,17 +159,10 @@ __fish_flatpak_samesub remote-ls user system runtime app arch
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -s r -l runtime -d "Use non-devel runtime of app metadata."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-mount -d "Add a custom bind mount in the build namespace."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l build-dir -d "Start the build in directory."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l share -d "Share a subsystem with the host session."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l unshare -d "Unshare a subsystem with the host session."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l socket -d "Expose a well-known socket to the app."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nosocket -d "Unexpose a well-known socket to the app."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l device -d "Expose a device to the app."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nodevice -d "Unexpose a device to the app."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l filesystem -d "Allow the app access to a subset of the fs."
 complete -c flatpak -xn "__fish_seen_subcommand_from build" -l nofilesystem -d "Disallow the app access to a subset of the fs."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l env -d "Set an env var in the app."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l own-name -d "Allow the app to own a name in session bus."
-complete -c flatpak -xn "__fish_seen_subcommand_from build" -l talk-name -d "Allow the app to talk to a name in session bus."
+complete -c flatpak -xn "__fish_seen_subcommand_from build" -l persist -d "Persistent relative homedir path for app."
+__fish_flatpak_samesub build share unshare socket nosocket device nodevice \
+  filesystem env own-talk talk-name system-own-name system-talk-name
 
 ### init
 
