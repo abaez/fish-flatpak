@@ -191,12 +191,12 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l include -d
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l metadata -d "Use the specified filename as metadata in exported app."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l files -d "Use the files in the specified subdirectory as the file contents."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l update-appstream -d "Run appstream-builder with appstream branch after build."
-__fish__flatpak_samesub build-export arch runtime gpg-sign gpg-homedir
+__fish_flatpak_samesub build-export arch runtime gpg-sign gpg-homedir
 
 ### bundle
 complete -c flatpak -xn "__fish_seen_subcommand_from build-bundle" -l repo-url -d "Url for repo of app to be used for updates."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-bundle" -l oci -d "Export to an OCI image instead of flatpak bundle."
-__fish__flatpak_samesub build-bundle arch runtime gpg-keys gpg-homedir
+__fish_flatpak_samesub build-bundle arch runtime gpg-keys gpg-homedir
 
 ### import-bundle
 complete -c flatpak -xn "__fish_seen_subcommand_from build-import-bundle" -l ref -d "Overried the ref specified in the bundle."
@@ -207,8 +207,8 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build-update-repo" -l title
 complete -c flatpak -xn "__fish_seen_subcommand_from build-update-repo" -l generate-static-deltas -d "Generate static deltas of ref."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-update-repo" -l prune -d "Remove unreferences object in repo."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-update-repo" -l prune-depth -d "Keep the count of any particular ref."
-__fish__flatpak_samesub build-update-repo gpg-keys gpg-homedir
+__fish_flatpak_samesub build-update-repo gpg-keys gpg-homedir
 
 ### sign
-__fish__flatpak_samesub build-sign runtime arch gpg-sign gpg-homedir
+__fish_flatpak_samesub build-sign runtime arch gpg-sign gpg-homedir
 
