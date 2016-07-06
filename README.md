@@ -26,5 +26,5 @@ fisher abaez/fish-flatpak
 [fisherman]: https://github.com/fisherman/fisherman
 [1i]: https://img.shields.io/badge/twitter-a_baez-blue.svg
 [1p]: https://twitter.com/a_baez
-[2i]: https://img.shields.io/badge/license-MIT-green.svg
+[2i]: https://img.shields.io/badge/license-GPL_2-green.svg
 [2p]: ./LICENSE
