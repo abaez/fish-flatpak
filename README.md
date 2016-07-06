@@ -8,14 +8,7 @@ Autocomplete for [flatpak] for [fish].
 
 ## Description
 
-Currently in development, but will eventually have the full exhausted list of flatpak sub commands available for ease in use.
-
-#### Progress
-
-* install
-* update
-* uninstall
-* list
+A simple autocomplete with descriptions for all commands from v[0.6.6] of [flatpak].
 
 ## Install
 
@@ -25,6 +18,7 @@ With [fisherman]
 fisher abaez/fish-flatpak
 ```
 
+[0.6.6]: https://github.com/flatpak/flatpak/tree/0.6.6
 [fish]: http://fishshell.com/
 [flatpak]: http://flatpak.org/
 [slack-link]: https://fisherman-wharf.herokuapp.com
