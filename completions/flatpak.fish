@@ -65,6 +65,12 @@ function __fish_flatpak_samesub
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Allow the app to talk the name in the system bus"
       case persist
         complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "make relative persistent bind mount"
+      case gpg-sign
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Sign the commit."
+      case gpg-keys
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "Add the GPG key."
+      case gpg-homedir
+        complete -c flatpak -xn "__fish_seen_subcommand_from $cmd" -l $sub -d "GPG homedir to use for keyring lookup."
     end
   end
 end
@@ -185,16 +191,12 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l include -d
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l metadata -d "Use the specified filename as metadata in exported app."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l files -d "Use the files in the specified subdirectory as the file contents."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l update-appstream -d "Run appstream-builder with appstream branch after build."
-complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-sign -d "Sign the commit."
-complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-homedir -d "GPG homedir to use for keyring lookup."
-__fish__flatpak_samesub build-export arch runtime
+__fish__flatpak_samesub build-export arch runtime gpg-sign gpg-homedir
 
 ### bundle
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l repo-url -d "Url for repo of app to be used for updates."
-complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-keys -d "Add the GPG key."
-complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l gpg-homedir -d "GPG homedir to use for keyring lookup."
 complete -c flatpak -xn "__fish_seen_subcommand_from build-export" -l oci -d "Export to an OCI image instead of flatpak bundle."
-__fish__flatpak_samesub build-bundle arch runtime
+__fish__flatpak_samesub build-bundle arch runtime gpg-keys gpg-homedir
 
 ### import-bundle
 complete -c flatpak -xn "__fish_seen_subcommand_from build-import-bundle" -l ref -d "Overried the ref specified in the bundle."
@@ -202,7 +204,5 @@ complete -c flatpak -xn "__fish_seen_subcommand_from build-import-bundle" -l oci
 
 ### update-repo
 
+
 ### sign
-
-
-
